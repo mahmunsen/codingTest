@@ -4,6 +4,7 @@ package codingTest.baekjoon.정수론_numberTheory.소수구하기_1929;
 // 입력: (1) 자연수 m, n (1 <= m <= n <= 1,000,000) m이상 n이하의 소수가 하나 이상 있는 입력
 // 출력: 한 줄에 하나씩, 증가하는 순서대로 소수 출력
 
+/** 오답노트: 1은 소수가 아닌 자연수이다. */
 //import java.util.Scanner;
 //public class Main {
 //    public static void main(String[] args){
@@ -13,11 +14,12 @@ package codingTest.baekjoon.정수론_numberTheory.소수구하기_1929;
 //        int[] a = new int[n+1];
 //
 //        for(int i=1; i<=n; i++) {
-//            a[i] = i;
+//            a[i] = i;    // a[1] = 1, a[16] = 16
 //        }
-//        for(int i=2; i <=Math.sqrt(n); i++){
+//        a[1] = 0;
+//        for(int i=2; i <=Math.sqrt(n); i++){ // a = √a * √a, 16 = 4 * 4 = a * b -> 둘 중 하나는 반드시 <= √16
 //            if(a[i]==0) continue;  // 0이면 스킵
-//           for(int j=i+i; j<=n; j=j+i){ // j = 4부터 시작, j+i(4+2)...16까지
+//           for(int j=i+i; j<=n; j=j+i){ // j = 4, j+i(4+2)...16까지
 //               a[j] = 0; // a[4] = 4 -> 0, a[6] = 6 -> 0 ...
 //           }
 //        }
