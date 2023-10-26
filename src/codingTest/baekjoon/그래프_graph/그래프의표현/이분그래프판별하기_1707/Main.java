@@ -1,6 +1,6 @@
 package codingTest.baekjoon.그래프_graph.그래프의표현.이분그래프판별하기_1707;
 
-import java.io.BufferedReader;
+
 
 /** 이분 그래프: 인접한 노드들을 인접하기 않은 두 집합으로 나눌 수 있을 때.
  * 집합: A - B - A (A - A - A가 아니라 노드1과 노드2는 각각 서로 다른 집합에 속해야 한다)
@@ -22,6 +22,7 @@ import java.io.BufferedReader;
  *            다른 집합이면 YES
  * */
 // 모든 노드를 기점으로 dfs 실시해야 <- 그래프가 끊어져 있을 수도 있기 때문
+
 
 import java.io.*;
 import java.util.*;
