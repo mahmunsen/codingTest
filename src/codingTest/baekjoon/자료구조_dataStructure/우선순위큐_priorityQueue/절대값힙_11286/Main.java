@@ -18,11 +18,11 @@ public class Main {
         // 절대값이 같을 경우 음수를 우선순위 정렬
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> {
             int fst = Math.abs(a); // Math.abs(): 절대값 구하는 함수
-            int snd = Math.abs(b);
-            if(fst == snd){
+            int end = Math.abs(b);
+            if(fst == end){
                 return a > b ? 1:-1;  // 절대값이 값으면 음수 우선
             }
-            return fst - snd; // 절대값이 작은 데이터 우선
+            return fst - end; // 절대값이 작은 데이터 우선
         });
 
         for(int i=0; i<n; i++){
