@@ -1,12 +1,9 @@
-package codingTest.baekjoon.정렬_sorting.버블정렬_bubbleSort.소트인사이드_1427;
+package codingTest.baekjoon.정렬_sorting.선택정렬_selectionSort.소트인사이드_1427;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class Main {
     // 시간제한: 2초 -> 2억 이내
