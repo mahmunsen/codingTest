@@ -1,4 +1,4 @@
-package codingTest.baekjoon.정렬_sorting.선택정렬_selectionSort.소트인사이드_1427;
+package codingTest.baekjoon.정렬_sorting.버블정렬_bubbleSort.소트인사이드_1427;
 
 import java.io.BufferedReader;
 import java.io.IOException;
