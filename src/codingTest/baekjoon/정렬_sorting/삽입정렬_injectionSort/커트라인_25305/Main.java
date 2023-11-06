@@ -19,15 +19,16 @@ package codingTest.baekjoon.정렬_sorting.삽입정렬_injectionSort.커트라�
 //        for(int i=0; i<n; i++){
 //            a[i] = Integer.parseInt(st.nextToken());
 //        }
-//        for(int i=1; i<n; i++){
-//          int target = a[i]; // 타겟
-//          int j = i-1;       // 0번
-//            // 타겟이
-//          while (j>=0 && target>a[j]){
-//              a[j+1] = a[j];
-//              j--;
-//          }
-//          a[j+1] = target;
+//
+//        for(int i=1; i<n; i++){ // index = 0은 이미 정렬된 상태를 가정, 1위치부터 시작
+//            int target = a[i];
+//            int j = i-1; // 타겟보다 이전
+//            while(j>=0 && a[j] <= target){
+//                a[j+1] = a[j];
+//                j--;
+//            }
+////          target = a[j+1]; // (오답) 타겟에 새로운 값을 저장해서 타겟의 값을 바꾸면 x
+//            a[j+1] = target;   // 새로운 위치에 들고있던 타겟의 값을 저장 o
 //        }
 //        System.out.println(a[k-1]);
 //    }
@@ -40,25 +41,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken()); // 학생수
-        int k = Integer.parseInt(st.nextToken()); // 상받는 학생수
-        int[] a = new int[n];
-        st = new StringTokenizer(br.readLine());
-        for(int i=0; i<n; i++){
-            a[i] = Integer.parseInt(st.nextToken());
-        }
+        int n = Integer.parseInt(st.nextToken()); // 응시자 수
+        int k = Integer.parseInt(st.nextToken()); // 상 받는 사람 수
+        
 
-        for(int i=1; i<n; i++){ // index = 0은 이미 정렬된 상태를 가정, 1위치부터 시작
-            int target = a[i];
-            int j = i-1; // 타겟보다 이전
-            while(j>=0 && a[j] <= target){
-                a[j+1] = a[j];
-                j--;
-            }
-//          target = a[j+1]; // (오답) 타겟에 새로운 값을 저장해서 타겟의 값을 바꾸면 x
-            a[j+1] = target;   // 새로운 위치에 들고있던 타겟의 값을 저장 o
-        }
-        System.out.println(a[k-1]);
+
+
+
+
+
+
+
     }
 }
 
