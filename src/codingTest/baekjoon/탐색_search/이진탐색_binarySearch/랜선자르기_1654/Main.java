@@ -1,44 +1,43 @@
 package codingTest.baekjoon.탐색_search.이진탐색_binarySearch.랜선자르기_1654;
+// 2초 -> 약 2억 연산 내로 문제 풀어야.
+// 1 <= k <= 10,000, 1 <= n <= 1,000,000, k <= n, n2 연산 불가
+// 각 랜선 길이 <= 2^31 -1, 2^31 은 약 20억
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
+import java.util.*;
+import java.io.*;
 public class Main {
-    // 2초 -> 약 2억 연산 내로 문제 풀어야.
-    // 1 <= k <= 10,000, 1 <= n <= 1,000,000, k <= n, n2 연산 불가
-    // 각 랜선 길이 <= 2^31 -1, 2^31 은 약 20억
+
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int k = Integer.parseInt(st.nextToken()); // 이미 가지고 있는 랜선 수
-        int n = Integer.parseInt(st.nextToken()); // 필요한 랜선 수
-        int[] lines = new int[k]; // 이미 가지고 있는 랜선들
-        int max = 0; // 자를 수 있는 최대 길이
-
-        for (int i = 0; i < k; i++){
-            lines[i] = Integer.parseInt(br.readLine());
-            max = Math.min(lines[i], lines[i]);
+        int k = Integer.parseInt(st.nextToken());
+        int n = Integer.parseInt(st.nextToken());
+        int[] l = new int[k];
+        long max = 0;
+        for(int i = 0; i < k; i++){
+            l[i] = Integer.parseInt(br.readLine());
+            if(l[i] > max){
+                max = l[i];
+            }
         }
 
-        // todo 밑부분 디버깅
-        double low = 0;  // 자를 수 있는 최소 길이
-        double high = max; // 자를 수 있는 최대 길이
+        long low = 1;  // 길이가 자연수라 0이면 안된다.
+        long high = max;
+        long mid = 0;  // long타입은 소숫점 무시한다.
         while(low <= high){
-            double mid = Math.floor((low + high) / 2);  // 중앙값, 소숫점 버림
-            int sum = 0;  // 길이의 합계
-            for (int line : lines){
-                sum += line / mid;
+            mid = (low + high) / 2;
+            long sum = 0;
+            for(int i=0; i<k; i++){
+                sum += l[i]/mid;
             }
-            if (sum <= n){
-                high = mid - 1;
-            } else if (sum > n){
-                low = mid + 1;
+            if (sum >= n){
+                low = mid+1;
+            } else {
+                high = mid-1;
             }
         }
-        System.out.println(high);
+        System.out.println((low+high)/2);
     }
 }
