@@ -13,7 +13,7 @@ package codingTest.baekjoon.탐색_search.너비우선탐색_BFS.미로탐색_21
 import java.io.*;
 import java.util.*;
 public class Main {
-    static int[] dx = {0, 1, 0, -1}; // 상하좌우 탐색 위한 define값 정의 변수
+    static int[] dx = {0, 1,  0, -1}; // 상하좌우 탐색 위한 define값 정의 변수
     static int[] dy = {1, 0, -1, 0};
     static boolean[][] visited; // 방문 기록 배열
     static int n, m;
@@ -32,18 +32,19 @@ public class Main {
                 a[i][j] = Integer.parseInt(line.substring(j, j+1));
             }
         }
+
         bfs(0,0);
         System.out.println(a[n-1][m-1]); // 인덱스가 0부터 시작해서 -1 해준다.
     }
     private static void bfs(int i, int j){
         Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{i,j}); // 큐 자료구조에 노드 삽입, {0,0}
+        queue.offer(new int[]{i,j});
         visited[i][j] = true; // 초기화
         while (!queue.isEmpty()){  // 큐가 비어있을 때까지
             int now[] = queue.poll(); // 큐에서 노드 데이터 가져오기
-            for(int k=0; k<4; k++){  // 상하좌우로 탐색
-                int x = now[0] + dx[k];  // 0 + 0/1/-1/0
-                int y = now[1] + dy[k];  // 0 + 1/0/0/-1
+            for(int k=0; k<4; k++){  // 상하좌우로 탐색 {x,y}
+                int x = now[0] + dx[k];  // 0 + 0/1/-1/0  +1
+                int y = now[1] + dy[k];  // 0 + 1/0/0/-1 -> now[1]인 이유는 {a,b}에서 b가 index 1번을 나타내기 때문
                 if(x >= 0 && y >= 0 && x < n && y < m){ // 배열을 넘어가면 안됨
                     if(a[x][y]!=0 && !visited[x][y]){ // 0이여서 갈수 없거나 이미 방문한 배열이면 안됨
                         // 이제 탐색 가능한 곳
